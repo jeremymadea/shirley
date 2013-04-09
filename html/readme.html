@@ -1,0 +1,73 @@
+<h1>Shirley: a Personal Bookmarking Service</h1>
+
+<p><strong>Ted Striker:</strong> <em>Surely you can't be serious!</em> <br>
+<strong>Dr. Rumack:</strong> <em>I am serious. And don't call me Shirley.</em></p>
+
+<h2>Prerequisites</h2>
+
+<p>You've gotta have node.js and mongodb installed. Mongodb should be 
+running on its default port. </p>
+
+<h2>Quick Start</h2>
+
+<p>Change into the directory this README.md file is in. </p>
+
+<pre><code>$ npm install
+$ node ./shirley.js
+</code></pre>
+
+<p>This will start the shirley server on port 8080 by default. The port
+can be changed in <code>config.js</code>. After the server is running, an HTML
+version of this page should be available at: </p>
+
+<p><a href="http://localhost:8080/readme.html">http://localhost:8080/readme.html</a></p>
+
+<p>If the collection specified in config.js doesn't exist, shirley will 
+create it and add some sample data.</p>
+
+<h2>API</h2>
+
+<p>This is a simple REST API that uses <code>application/json</code> as the message
+format for responses. </p>
+
+<h3>Get By Tags</h3>
+
+<p>A GET request to <code>/t/*</code> will treat the remainder of the path
+as slash separated tags and will return a list of the bookmarks
+that match any of those tags. </p>
+
+<h4>Example</h4>
+
+<pre><code>$ curl http://localhost:8080/t/nosql/javascript
+</code></pre>
+
+<h3>Get by Name</h3>
+
+<p>A GET request to <code>/n/:name</code> will return the bookmark with the name
+attribute matching <code>:name</code>. </p>
+
+<h4>Example</h4>
+
+<pre><code>$ curl http://localhost:8080/n/madea
+</code></pre>
+
+<h3>Redirect By Name</h3>
+
+<p>A GET request to <code>/r/:name</code> will return a status 302 redirect with <br>
+location header holding the URL of the bookmark with the name
+attribute matching <code>:name</code>. </p>
+
+<h4>Example</h4>
+
+<pre><code>$ curl --include http://localhost:8080/r/madea
+</code></pre>
+
+<h3>Add Bookmark</h3>
+
+<p>A POST request to <code>/add</code> with a suitable message body will 
+add a bookmark to the database.     </p>
+
+<h4>Example</h4>
+
+<p>If the shirley server is running, a form that posts to <code>/add</code> should
+be available at <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>

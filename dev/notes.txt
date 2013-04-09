@@ -1,0 +1,41 @@
+
+
+GET /url/sometag/anothertag/etc
+GET /l/name - get link by name 
+GET /r/name - redirect
+POST /url 
+url=
+name=
+desc=
+tags=
+time=new Date() 
+
+
+
+{
+        "_id" : "http://madea.net/",
+        "name" : "madea",
+        "desc" : "Jeremy Madea's Homepage",
+        "tags" : [
+                "jeremy-madea",
+                "systems-engineer",
+                "systems-architect",
+                "software-engineer",
+                "developer",
+                "programmer",
+                "php",
+                "c",
+                "perl",
+                "unix"
+        ],
+        "time" : ISODate("2013-04-07T16:42:56.145Z")
+}
+
+Mongo Setup: 
+db.urls.ensureIndex( { name: 1 }, { unique: true } )
+
+Resources: 
+http://expressjs.com/api.html
+http://docs.mongodb.org/manual/contents/
+http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html
+https://github.com/mongodb/node-mongodb-native

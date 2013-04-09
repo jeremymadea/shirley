@@ -1,0 +1,10 @@
+{
+  "name": "Shirley",
+  "description": "Shirley: a URL service",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.1.1", 
+    "mongodb": "1.2.14"
+  }
+}
